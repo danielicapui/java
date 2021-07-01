@@ -3,57 +3,45 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.LinkedList;
 public class Main{
-	public static void main(String[] args){
-	Calculo calculo=new Calculo();
-	Scanner input = new Scanner(System.in);
-	int a=input.nextInt();
-	input.close();
-	// #Vector<Integer> shika = new Vector<>();
-	ArrayList<Integer>shika=new ArrayList<Integer>(6);
-	shika =calculo.nota(a);
-	calculo.Saida(shika);
-	//shika[0],shika[1],shika[2],shika[3],shika[4],shika[5],shika[6]
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		int a=input.nextInt();
+		input.close();
+		Calculo calculo=new Calculo(a);
+		calculo.nota();
+		calculo.Saida();
 	}
 
 }
-class Calculo{
-	public ArrayList adiciona_lista(ArrayList shika){
-		shika.add(100);
-		shika.add(50);
-		shika.add(20);
-		shika.add(10);
-		shika.add(5);
-		shika.add(2);
-		shika.add(1);
-		return shika;
+class Calculo
+{
+	public int inu []={100,50,20,10,5,2,1};
+	public int a,b;
+	ArrayList<Integer> rabbit=new ArrayList<Integer>(7);
+	Calculo(int a)
+	{
+		this.a=a;
+		this.b=a;
 	}
-	public ArrayList nota(int a){
-		ArrayList<Integer> rabbit=new ArrayList<Integer>(6);
-		ArrayList<Integer> lista=new ArrayList<Integer>(6);
-		lista=adiciona_lista(lista);
+	public void nota(){
 		int aux;
-		for(int i=0;i<7;i++){
-			aux=(int)(a/lista.get(i));
+		for(int i=0;i<7;i++)
+		{
+			aux=(a/inu[i]);
 			rabbit.add(aux);
-			a=a%lista.get(i);
+			a=(a%inu[i]);
 		}
-		return rabbit;
 	}
-	public void Saida(ArrayList shika ){
-		// System.out.printf("%d nota(s) de R$ 100,00%n",n100);
-		// System.out.printf("%d nota(s) de R$ 50,00%n",n50);
-		// System.out.printf("%d nota(s) de R$ 20,00%n",n20);
-		// System.out.printf("%d nota(s) de R$ 10,00%n",n10);
-		// System.out.printf("%d nota(s) de R$ 5,00%n",n5);
-		// System.out.printf("%d nota(s) de R$ 100,00%n",n2);
-		// System.out.printf("%d nota(s) de R$ 1,00%n",n1);
-		System.out.printf("%d nota(s) de R$ 100,00%n",shika.get(0));
-		System.out.printf("%d nota(s) de R$ 50,00%n",shika.get(1));
-		System.out.printf("%d nota(s) de R$ 20,00%n",shika.get(2));
-		System.out.printf("%d nota(s) de R$ 10,00%n",shika.get(3));
-		System.out.printf("%d nota(s) de R$ 5,00%n",shika.get(4));
-		System.out.printf("%d nota(s) de R$ 2,00%n",shika.get(5));
-		System.out.printf("%d nota(s) de R$ 1,00%n",shika.get(6));
+	public void Saida()
+	{
+		System.out.printf("%d%n", this.b);
+		String palavra;
+		for(int i=0;i<7;i++)
+		{
+			palavra=rabbit.get(i)+" nota(s) de R$ "+inu[i]+",00";
+			System.out.println(palavra);
+		}
 		
 	}
 }	
